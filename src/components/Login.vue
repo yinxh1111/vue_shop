@@ -38,50 +38,52 @@ export default {
   data() {
     return {
       loginForm: {
-        username: "yxh",
-        password: "123456",
+        username: 'admin',
+        password: '123456',
       },
       //表单的验证规则
       loginFormRules: {
         //验证用户名
         username: [
-          { required: true, message: "请输入用户名", trigger: "blur" }, //规则一
-          { min: 3, max: 5, message: "长度在 3 到 5 个字符", trigger: "blur" }, //规则二
+          { required: true, message: '请输入用户名', trigger: 'blur' }, //规则一
+          { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }, //规则二
         ],
         //验证密码
         password: [
-          { required: true, message: "请输入密码", trigger: "blur" }, //规则一
+          { required: true, message: '请输入密码', trigger: 'blur' }, //规则一
           {
             min: 6,
             max: 15,
-            message: "长度在 6 到 15 个字符",
-            trigger: "blur",
+            message: '长度在 6 到 15 个字符',
+            trigger: 'blur',
           }, //规则二
         ],
       },
-    };
+    }
   },
   methods: {
     //重置表单
     restLoginForm() {
-      this.$refs.loginFormRef.resetFields();
+      this.$refs.loginFormRef.resetFields()
     },
     //预验证表单
     login() {
       this.$refs.loginFormRef.validate(async (valid) => {
-        if (!valid) return;
+        if (!valid) return
         //预校验成功则发起请求
-        const { data: res } = await this.axios.post("/login", this.loginForm);
-        if(res.meta.status!==200){return this.$message.error("密码或用户名不正确")}
-        this.$message.success("登陆成功")
+        const { data: res } = await this.axios.post('/login', this.loginForm)
+        if (res.meta.status !== 200) {
+          return this.$message.error('密码或用户名不正确')
+        }
+        this.$message.success('登陆成功')
         //登陆成功把后台返回的token放在会话时有效数据中sessionStoreage
-        window.sessionStorage.setItem("token",res.data.token)
+        window.sessionStorage.setItem('token', res.data.token)
         //跳转至其他页面
-        this.$router.push("/home")
-      });
+        this.$router.push('/home')
+      })
     },
   },
-};
+}
 </script>
 <style lang="less" scoped>
 .login_container {
