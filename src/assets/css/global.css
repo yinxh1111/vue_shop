@@ -3,3 +3,11 @@ html,body,#app{
     margin: 0;
     padding: 0;
 }
+.el-breadcrumb{
+    margin-bottom: 10px;
+    font-size: 10px;
+}
+.el-table{
+    font-size: 12px;
+    margin-top: 15px;
+}
