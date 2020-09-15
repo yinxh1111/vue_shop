@@ -9,3 +9,4 @@ import ElementUi from 'element-ui'
 //Message需挂载到Vue.prototype上
 Vue.use(ElementUi)
 Vue.prototype.$message = ElementUi.Message
+// Vue.prototype.$confirm = ElementUi.MessageBox.confirm
