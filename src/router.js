@@ -12,8 +12,11 @@ const router = new Router({
     {
       path: "/home", component: Home, redirect: '/welcome', children: [
         //component使用函数,路由按需加载.但import时,需写路径
-        { path: '/welcome', component: () => import('./components/Welcome.vue') },
-        {path:'/users',component:()=>import('./components/user/Users.vue')}
+        {path: '/welcome', component: () => import('./components/Welcome.vue')},
+        {path:'/users',component:()=>import('./components/user/Users.vue')},
+        {path:'/roles',component:()=>import('./components/power/Role.vue')},
+        {path:'/rights',component:()=>import('./components/power/Right.vue')},
+        {path:'/params',component:()=>import('./components/goods/Params.vue')}
       ]
     }
   ]
